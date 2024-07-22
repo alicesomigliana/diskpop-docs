@@ -39,7 +39,6 @@ extensions = [
 	'myst_parser',
 	'sphinx.ext.intersphinx',
 	'sphinx.ext.doctest',
-    'sphinx-jsonschema',
 ]
 
 
