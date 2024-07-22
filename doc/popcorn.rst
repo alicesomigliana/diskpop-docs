@@ -255,6 +255,6 @@ we describe the rest of the popcorn functions (which are used in the main ones d
 Tutorial
 ---------
 
-Tutorial notebooks to use the main features of popcorn are available under the 'examples' folder in `the Diskpop bitbucket repository<https://bitbucket.org/diskpopteam/diskpop/src/master/>`_. This link leads to an examples folder, which includes two jupyter notebooks and their corresponding output files, to read a viscous and MHD-wind driven population respectively.
+Tutorial notebooks to use the main features of popcorn are available under the 'examples' folder in  `the Diskpop bitbucket repository <https://bitbucket.org/diskpopteam/diskpop/src/master/>`_. The folder includes two jupyter notebooks and their corresponding output files, to read a viscous and MHD-wind driven population respectively.
 
 
