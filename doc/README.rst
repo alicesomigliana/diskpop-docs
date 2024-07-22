@@ -1,24 +1,10 @@
-.. Diskpop documentation master file, created by
-   sphinx-quickstart on Thu Feb  3 10:52:58 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-
-.. image:: images/Logo_transparent.png
-  :width: 1000
-  :alt: Alternative text
-  
-.. rst-class:: center
-   
 A Python code for population synthesis of protoplanetary discs
-================================================================
+===============================================================
 
 
 Diskpop is a Python code used to generate and evolve synthetic populations of protoplanetary discs. It includes the viscous, hybrid and MHD-wind driven accretion prescriptions, internal and external photoevaporation, as well as dust evolution.
 
-The physical processes and solution algorithms employed are described in  :ref:`Solution algorithms<target to solution>`, while the initial conditions are discussed in :ref:`Initial conditions <target to initial_parameters>`.
-
-To analyse the raw output of Diskpop, the Python library :ref:`popcorn<target to popcorn>` is available. Both codes have been published in Somigliana et al. 2024 (ADD LINK).
+To analyse the raw output of Diskpop, the Python library popcorn is available. Both codes have been published in Somigliana et al. 2024 (ADD LINK).
 
 
 Using Diskpop for your work
@@ -44,8 +30,7 @@ Diskpop Team
 -------------
 
 Diskpop and popcorn have been developed by Alice Somigliana, Giovanni Rosotti, Marco Tazzari, Leonardo Testi, Giuseppe Lodato, 
-Claudia Toci, Rossella Anania, and Benoît Tabone. Both codes are under active development; for questions or bugs report, 
-see :ref:`Bugs and features <target to bugsandfeatures>`. 
+Claudia Toci, Rossella Anania, and Benoît Tabone. Both codes are under active development.
 
 
 Diskpop papers
@@ -55,6 +40,7 @@ At `this link <https://ui.adsabs.harvard.edu/user/libraries/OgnSMEn2QJ-bQamef0f7
 
 
 .. toctree::
+   :numbered:
    :maxdepth: 4
    :caption: Documentation contents:
 

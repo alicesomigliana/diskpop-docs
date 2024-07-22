@@ -1,0 +1,117 @@
+{
+	"parameters_options": {
+			"options.MONTECARLO" : true,
+			"options.CORRELATION" : true,
+			"options.REPRODUCIBILITY": true,
+			"options.MHD": false,
+			"options.INTERNAL_PHOTOEV": false,
+			"options.DO_PLOTS" : false,
+		    "multiprocessing_options" : {
+				"parallel_evol" : false,
+				"all_available_proc" : true,
+				"nproc" : 10
+			}
+	},
+		
+	"parameters_population": [
+		{
+		
+			"parameters_general":
+				{
+					"output_name" : "default",
+					"nysos" : 100,
+					"analytic" : true,
+					"times_snapshot" : [0.001, 0.01, 0.1, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10],
+					"alpha" : 1e-3,
+					"dust" : false,
+					"limit_discmass": 1e-6,
+					"d2g" : 0.01,
+					"seed" : 1
+				},
+
+			"parameters_mhd":
+				{
+					"leverarm" : 3,
+					"omega" : 0
+				},
+				
+				
+			"parameters_imf":
+				{
+					"imf" : "kroupa",
+					"mmin" : 5e-2,
+					"mmax" : 50
+				},
+				
+			
+			"parameters_correlation":
+				{
+					"beta" : -0.5,
+
+					"mdisc_slope" : 2.1,
+					"mdisc_norm" : 1e-2,
+					"mdisc_method": "lognormal",
+
+					"mdot_slope" : 1.5,
+					"log_mdot_norm" : -8.44,
+					"rdisc_method" : "lognormal",
+
+					"beta_mag_norm" : 0,
+					"beta_mag_slope" : 0,
+					"beta_mag_method" : "lognormal",
+
+					"alpha_DW_norm" : 1e-3,
+					"alpha_DW_slope" : 0,
+					"alpha_DW_method" : "lognormal",
+
+					"L_x_norm" : 0,
+					"L_x_slope" : 0,
+					"L_x_method" : "lognormal",
+
+					"mdot_photoev_norm" : 0,
+					"mdot_photoev_slope" : 0,
+					"mdot_photoev_method" : "lognormal"
+				},
+				
+				
+			
+			"parameters_nocorrelation":
+				{	
+					"beta_mag_mean": 22,
+					"alpha_DW_mean": 0,
+					"mdisc_mean" : 0.003,
+					"rdisc_mean" : 10,
+					"L_x_mean": 1e30,
+					"mdot_photoev_mean": 0
+				},
+						
+								
+						
+			"parameters_spreads":
+				{	
+					"mdisc_spread" : 0.5,
+					"rdisc_spread" : 0.5,	
+					"alpha_spread" : 0.0,
+					"alpha_DW_spread" : 0.0,
+					"beta_mag_spread": 0,
+					"mdot_photoev_spread" : 0,
+					"L_x_spread" : 0	
+				}
+				
+				
+				
+			}
+			
+			
+		],
+		
+	"parameters_singledisc":
+		{			           			
+			"mdisc" : 1e-3,               				
+			"rdisc_mean" : 50,                    			
+			"mstar" : [1, 2, 3],
+			"alpha_DW_mean" : 1e-3,
+			"beta_mag_mean" : 0           					                   					                      						
+		}	
+}
+
