@@ -1,4 +1,1 @@
-# Documentation example
-
-We use this example in the lesson
-[How to document your research software](https://coderefinery.github.io/documentation/).
+This repository contains the Diskpop documentation sources. Access the documentation at [this page](https://alicesomigliana.github.io/diskpop-docs/index.html)
