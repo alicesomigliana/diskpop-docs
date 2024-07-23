@@ -27,7 +27,7 @@ The Young Stellar Objects simulated with Diskpop are composed of a Star and a Di
 
 The sketch below represents the workflow in the case of the disc mass. The top panel shows a histogram of the stellar masses extracted by the `Kroupa (2002) <https://ui.adsabs.harvard.edu/abs/2002Sci...295...82K/abstract>`_ initial mass function; from that, we consider a single value (around 1 :math:`M_{\odot}`) marked with a cross. In the bottom panel, we see the distribution of disc masses as a function of the stellar mass, compared to the input value (represented by the yellow line): the orange circle represents the theoretical value of the disc mass corresponding to the stellar mass marked with the cross, in the case of perfect correlation. That is the mean value of the disc mass distribution, which is then used together with the chosen distribution and the input spread to extract the real value, represented by the blue circle. This same procedure applies to all the disc properties specified in the `parameters.json` file.
 
-.. figure:: images/sketch_discmass.png
+.. figure:: images/Sketch_discmass.png
   :width: 1000
   :alt: Alternative text
 
