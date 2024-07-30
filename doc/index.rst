@@ -37,8 +37,14 @@ Diskpop can be installed from terminal as
 	pip install diskpop
 
 Alternatively, it is also possible to clone the Bitbucket repository.
-In both cases, the installation of Diskpop automatically includes the output analysis library popcorn.
 
+Likewise, the output analysis library popcorn can be installed from terminal as
+
+.. code-block :: bash
+
+	pip install popcorn_diskpop
+
+or accessed cloning the Bitbucket repository.
 
 Diskpop Team
 -------------
