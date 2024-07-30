@@ -2,8 +2,11 @@
 
 .. rst-class:: center
 
-Troubleshooting
-################
+Troubleshooting, bugs and features
+###################################
+
+Reported issues
+================
 
 Having trouble installing or running Diskpop? The list of reported issues below might have the answer to your question. Should it not help, please refer to 'Bug reports' below.
 
@@ -12,7 +15,7 @@ Having trouble installing or running Diskpop? The list of reported issues below 
 
 
 Reporting bugs and requesting features
-#####################################################
+=======================================
 
 Bug reports
 ------------
