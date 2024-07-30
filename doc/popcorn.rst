@@ -16,26 +16,16 @@ example notebooks reading a viscous and a MHD wind-driven population respectivel
 Installation
 -------------
 
-popcorn is included in the Diskpop folder. To be able to import it in Jupyter notebooks, run the following commands from terminal:
+popcorn can be installed from the Python Package Index as
 
-.. code::
+.. code-block :: bash
 
-  cd path_to_diskpop/popcorn
-  python setup.py bdist_wheel
-  pip install dist/popcorn-0.0.1-py3-none-any.whl
-
-.. note::
-
-  If you want to overwrite a previously installed version of popcorn, replace the third line with
-
-  .. code::
-
-    pip install dist/popcorn-0.0.1-py3-none-any.whl --force-reinstall
+	pip install popcorn_diskpop
 
 
 .. note::
 
-  The `setup.py` file of popcorn **forces the installation of the 1.21 version of numpy** because of compatibility issues
+  The installation of popcorn and Diskpop **forces the installation of the 1.21 version of numpy** because of compatibility issues
   with the following versions. We recommend setting up a virtual environment to avoid possible conflicts with other
   codes.
 
