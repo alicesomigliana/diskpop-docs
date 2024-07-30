@@ -7,7 +7,7 @@ Troubleshooting
 
 Having trouble installing or running Diskpop? The list of reported issues below might have the answer to your question. Should it not help, please refer to 'Bug reports' below.
 
-- The installation of Diskpop and popcorn forces numpy==1.21 to be installed. However, users with outdated pip versions have experienced troubles with automatically obtaining the requested versions of the included packages. We recommend upgrading pip to the latest release before installing the codes. Alternatively, downgrading numpy to 1.21 should solve the issue of deprecated commands.
+- **Deprecation warnings.** The installation of Diskpop and popcorn forces numpy==1.21 to be installed. However, users with outdated pip versions have experienced troubles with automatically obtaining the requested versions of the included packages. We recommend upgrading pip to the latest release before installing the codes. Alternatively, downgrading numpy to 1.21 should solve the issue of deprecated commands.
 
 
 
