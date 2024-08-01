@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Basic Functioning &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. User Interface" href="user_interface.html" />
+    <link rel="prev" title="A Python code for population synthesis of protoplanetary discs" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Basic Functioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#disc-evolution">1.1. Disc evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disc-dispersal">1.2. Disc dispersal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Basic Functioning</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="center" id="basic-functioning">
+<span id="target-to-basics"></span><h1><span class="section-number">1. </span>Basic Functioning<a class="headerlink" href="#basic-functioning" title="Link to this heading"></a></h1>
+<p>To perform a population synthesis of protoplanetary discs with Diskpop, the user needs to set up the simulation parameters in the user interface file, <strong>parameters.json</strong>. In this section we describe the general architecture of the code and mention some of the involved parameters, but refer to <a class="reference internal" href="user_interface.html#target-to-user-interface"><span class="std std-ref">the following section</span></a> for a detailed description of the parameters and their possible values.</p>
+<p>A Diskpop simulation is composed of two key steps:</p>
+<ol class="arabic simple">
+<li><p>Generate a synthetic population of protoplanetary discs, with <strong>given initial conditions</strong>;</p></li>
+<li><p>Evolve each disc in the population up to the given age via the chosen evolutionary prescription.</p></li>
+</ol>
+<p>The user can entirely customize the initial conditions of the simulations, as well as decide whether to evolve the population solving
+the master equation numerically or analytically (where possible) and whether to set fixed parameters or perform a Monte Carlo extraction
+from a chosen distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most realistic scenario would see a Monte Carlo extraction of the parameters that also take into account the observed
+correlations between them. However, both these options can be customized (find more details <a class="reference internal" href="user_interface.html#target-to-user-interface"><span class="std std-ref">here</span></a>)</p>
+</div>
+<section id="disc-evolution">
+<span id="target-to-discevol"></span><h2><span class="section-number">1.1. </span>Disc evolution<a class="headerlink" href="#disc-evolution" title="Link to this heading"></a></h2>
+<p>Diskpop is a 1D evolutionary code that considers all discs in a population independent and evolve them separately integrating the master
+evolution equation</p>
+<div class="math notranslate nohighlight" id="eq-1">
+<span id="equation-eq-1"></span><span class="eqno">(1)<a class="headerlink" href="#eq-1" title="Link to this equation"></a></span>\[\frac{\partial \Sigma}{\partial t} = \frac{3}{r} \frac{\partial}{\partial r} \left[ \frac{1}{\Omega r} \frac{\partial}{\partial r} \left( r^2 \alpha_{\mathrm{SS}} \Sigma {c_s}^2 \right) \right] + \frac{3}{2r} \frac{\partial}{\partial r} \left[ \frac{\alpha_{\mathrm{DW}} \Sigma {c_s}^2}{\Omega} \right] - \frac{3 \alpha_{\mathrm{DW}} \Sigma {c_s}^2}{4 (\lambda-1)r^2 \Omega} - \dot{\Sigma}_{\mathrm{photo}},\]</div>
+<p>which describes the time evolution of the gas surface density in the most general framework:
+<span class="math notranslate nohighlight">\(\Sigma\)</span> is the gas surface density, <span class="math notranslate nohighlight">\(\Omega\)</span> the Keplerian orbital frequency, <span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}}\)</span> the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1976MNRAS.175..613S/abstract">Shakura &amp; Sunyaev (1973)</a>
+<span class="math notranslate nohighlight">\(\alpha\)</span> parameter, <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> the MHD equivalent of <span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}}\)</span> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a>,
+<span class="math notranslate nohighlight">\(c_s\)</span> the sound speed, and <span class="math notranslate nohighlight">\(\lambda\)</span> the magnetic lever arm parameter, which quantifies the ratio of extracted to initial
+specific angular momentum. The four terms on the right hand side refer to</p>
+<ol class="arabic simple">
+<li><p>the viscous torque, whose strength is parameterised by <span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}}\)</span>,</p></li>
+<li><p>the wind-driven accretion, which corresponds to an advection term, parameterised by <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span>,</p></li>
+<li><p>mass loss due to MHD disc winds, parameterised by <span class="math notranslate nohighlight">\(\lambda\)</span> and</p></li>
+<li><p>mass loss due to other physical phenomena (in our case, we consider internal and external photoevaporation).</p></li>
+</ol>
+<p>Depending on the values of the specific parameters,
+<a class="reference internal" href="#eq-1"><span class="std std-ref">Equation (1)</span></a> can describe a purely viscous (<span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}} = 0\)</span>), purely MHD wind-driven
+(<span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}} = 0\)</span>) or hybrid (<span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}}, \alpha_{\mathrm{DW}} \neq 0\)</span>) evolution, with
+(<span class="math notranslate nohighlight">\(\dot \Sigma_{\mathrm{photo}} \neq 0\)</span>) or without (<span class="math notranslate nohighlight">\(\dot \Sigma_{\mathrm{photo}} = 0\)</span>) the influence of photoevaporation.
+In the following, we briefly describe the various evolutionary scenarios and the available analytical solutions, implemented
+in the code. Where an analytic solution is not available, Diskpop solves <a class="reference internal" href="#eq-1"><span class="std std-ref">Equation (1)</span></a> with the integration algorithm described in <span class="xref std std-ref">solution algorithm</span>.</p>
+<p><strong>Purely viscous evolution</strong></p>
+<p>In the case of purely viscous evolution, the MHD winds parameter <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> is set to zero.
+If we also neglect the influence of photoevaporation, <a class="reference internal" href="#eq-1"><span class="std std-ref">Equation (1)</span></a> reduces to the first term on the right hand side
+and its solution depends on the functional form of the effective viscosity, parameterised as <span class="math notranslate nohighlight">\(\nu = \alpha_{\mathrm{SS}} c_s H\)</span>
+(where <span class="math notranslate nohighlight">\(H\)</span> is the vertical height of the disc). A popular analytical solution for viscous discs is the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1974MNRAS.168..603L/abstract">Lynden-Bell &amp; Pringle (1974)</a> self-similar solution, which assumes viscosity to scale as a power-law of the radius (<span class="math notranslate nohighlight">\(\nu \propto R^{\gamma}\)</span>).</p>
+<p><strong>MHD winds-driven evolution</strong></p>
+<p>There are two classes of analytical solutions to <a class="reference internal" href="#eq-1"><span class="std std-ref">Equation (1)</span></a> in the MHD wind-driven scenario, associated with a specific prescription of <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">(Tabone et al. 2022)</a>:</p>
+<ol class="arabic simple">
+<li><p>The simplest class of solutions (so-called <em>hybrid solutions</em>), which highlight the main features of wind-driven accretion in comparison to the viscous model, assume a constant <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}`\)</span> with time; these solutions depend on the value of <span class="math notranslate nohighlight">\(\psi \equiv \alpha_{\mathrm{DW}}/\alpha_{\mathrm{SS}}\)</span>, which quantifies the relative strength of the radial and vertical torque.</p></li>
+<li><p>Another class of solutions, which describe the unknown evolution of the magnetic field strength, assume a varying <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> with time. To obtain these, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a> parameterised <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}(t) \propto \Sigma_{\mathrm{c}} (t)^{-\omega}\)</span>, with <span class="math notranslate nohighlight">\(\Sigma_{\mathrm{c}} = M_{\mathrm{d}}(t)/2 \pi {R_c}^2 (t)\)</span> (where <span class="math notranslate nohighlight">\(R_c\)</span> is a characteristic radius) and <span class="math notranslate nohighlight">\(\omega\)</span> as a free parameter, and neglect the radial transport of angular momentum (<span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}} = 0\)</span>).</p></li>
+</ol>
+<p><strong>Photoevaporation</strong></p>
+<p>The generic <span class="math notranslate nohighlight">\(\dot \Sigma_{\mathrm{photo}}\)</span> term in <a class="reference internal" href="#eq-1"><span class="std std-ref">Equation (1)</span></a> allows to account for photoevaporative processes, both internal and external. The exact form of <span class="math notranslate nohighlight">\(\dot \Sigma_{\mathrm{photo}}\)</span> depends on the specific model considered; therefore, the availability (or lack thereof) of analytical solutions needs to be considered case by case.</p>
+</section>
+<section id="disc-dispersal">
+<span id="target-to-discdispersal"></span><h2><span class="section-number">1.2. </span>Disc dispersal<a class="headerlink" href="#disc-dispersal" title="Link to this heading"></a></h2>
+<p>Discs are considered dispersed when the gas surface density (or equivalently the mass) is too low to be detected.
+Depending on the evolutionary model considered, this is more or less likely to happen:</p>
+<ul class="simple">
+<li><p>in the viscous case, the disc mass naturally declines with time as a consequence of accretion onto the central star. However, this slow decline never results in complete disc dispersal - a classic problem of purely viscous evolution.</p></li>
+<li><p>in a viscous framework with internal photoevaporation, gas is removed from the disc as an effect of the ionization due to the radiation of the central protostar.</p></li>
+<li><p>in the MHD wind scenario, winds are launched from the disc surface and effectively remove mass from the total budget, resulting in the disc being dispersed after a few accretion timescales.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/disc_and_acc_fraction.png"><img alt="Alternative text" src="_images/disc_and_acc_fraction.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-text">Decline of the disc-bearing (left) and accreting (right) objects over time in the viscous (blue), viscous+internal photoevaporation (orange) and wind-driven (lilac) model compared with the observational data.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The different impact of disc removal in the various evolutionary scenarios lead to a different evolution of the fraction of disc-bearing and accreting objects over time, as the figure above (from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954L..13S/abstract">Somigliana et al. 2023</a>) shows in the left and right panel respectively.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="A Python code for population synthesis of protoplanetary discs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_interface.html" class="btn btn-neutral float-right" title="2. User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Solution Algorithm &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. popcorn" href="popcorn.html" />
+    <link rel="prev" title="2. User Interface" href="user_interface.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Solution algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generation-of-the-initial-population">3.1. Generation of the initial population</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evolution-algorithm">3.2. Evolution algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#analytical-solutions">3.2.1. Analytical solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numerical-integration">3.2.2. Numerical integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#disc-dispersal">3.3. Disc dispersal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Solution Algorithm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/solution_algorithm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="solution-algorithm">
+<span id="target-to-solution"></span><h1><span class="section-number">3. </span>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Link to this heading"></a></h1>
+<section id="generation-of-the-initial-population">
+<span id="target-to-generation"></span><h2><span class="section-number">3.1. </span>Generation of the initial population<a class="headerlink" href="#generation-of-the-initial-population" title="Link to this heading"></a></h2>
+<p>The first step to any Diskpop simulation is the generation of the initial population, based on the initial conditions specified in the <cite>parameters.json</cite> file.</p>
+<p>The input parameters, their meaning and possible values are described in depth in <a class="reference internal" href="user_interface.html#target-to-initial-parameters"><span class="std std-ref">Initial parameters</span></a>; here, we simply discuss the general workflow that leads to the generation of a population.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When describing the general steps to generate a population, we consider the example of a Monte Carlo-generated population of N = 100 sources, with correlations between the disc properties and the stellar mass. However, we stress that this is not the only possible set up and refero to <a class="reference internal" href="user_interface.html#target-to-user-interface"><span class="std std-ref">User interface</span></a> for more details.</p>
+</div>
+<p>The Young Stellar Objects simulated with Diskpop are composed of a Star and a Disc object, that gets assembled as follows:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Drawing the stellar masses</dt><dd><p>The first step to generate a population is determining the values of the stellar masses. In the most realistic case, these are extracted following an Initial Mass Function.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Assembling the disc</dt><dd><p>Once the stellar masses are determined, Diskpop moves on to computing the disc parameters - masses, radii, and accretion rates. First, it determines the mean values of each parameter based on the input correlations; then, it draws the actual values from the specified distributions, centered in the just computed mean value and with the specified spread.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The sketch below represents the workflow in the case of the disc mass. The top panel shows a histogram of the stellar masses extracted by the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002Sci...295...82K/abstract">Kroupa (2002)</a> initial mass function; from that, we consider a single value (around 1 <span class="math notranslate nohighlight">\(M_{\odot}\)</span>) marked with a cross. In the bottom panel, we see the distribution of disc masses as a function of the stellar mass, compared to the input value (represented by the yellow line): the orange circle represents the theoretical value of the disc mass corresponding to the stellar mass marked with the cross, in the case of perfect correlation. That is the mean value of the disc mass distribution, which is then used together with the chosen distribution and the input spread to extract the real value, represented by the blue circle. This same procedure applies to all the disc properties specified in the <cite>parameters.json</cite> file.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="_images/Sketch_discmass.png"><img alt="Alternative text" src="_images/Sketch_discmass.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-text">Representative sketch to show the determination of the disc parameters (disc mass in this example) based on the correlations with the stellar mass.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="evolution-algorithm">
+<span id="target-to-evoalg"></span><h2><span class="section-number">3.2. </span>Evolution algorithm<a class="headerlink" href="#evolution-algorithm" title="Link to this heading"></a></h2>
+<p>Once the initial population is generated, its evolution proceeds depending on the chosen prescription. When possible, Diskpop gives the option to evolve the population analytically: as the evolution is muh faster using analytical prescriptions, this option should be preferred when available. However, some set ups do not allow for an analytical solution (for example, when internal photoevaporation is included) and there is therefore also th possibility to integrate the disc evolution equation numerically. In the following, we present the available analytical solutions, as well as the numerical integration algorithm.</p>
+<section id="analytical-solutions">
+<h3><span class="section-number">3.2.1. </span>Analytical solutions<a class="headerlink" href="#analytical-solutions" title="Link to this heading"></a></h3>
+<p>In the following, we describe the three analytical solutions availale in Diskpop, divided by accretion model.</p>
+<p><strong>Viscous accretion</strong></p>
+<ul class="simple">
+<li><p>Self-similar solution: one of the most popular analytical solutions to the disc evolution equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a> in the purely viscous case is the self-similar solution by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1974MNRAS.168..603L/abstract">Lynden-Bell &amp; Pringle (1974)</a>, obtained assuming viscosity to scale as a power-law of the radius (<span class="math notranslate nohighlight">\(\nu \propto R^{\gamma}\)</span>).</p></li>
+</ul>
+<p>The solution reads</p>
+<div class="math notranslate nohighlight" id="eq-selfsim">
+<span id="equation-eq-selfsim"></span><span class="eqno">(1)<a class="headerlink" href="#eq-selfsim" title="Link to this equation"></a></span>\[\Sigma(R,t) = \frac{M_0}{2 \pi {R_c}^2} (2 - \gamma) \left( \frac{R}{R_c} \right)^{-\gamma} \left( 1 + \frac{t}{t_{\nu}} \right)^{-\eta} \exp{ \left( -\frac{(R/R_c)^{(2-\gamma)}}{ 1 + \frac{t}{t_{\nu}} } \right)},\]</div>
+<p>and the disc mass and accretion rates as a function of time are given by</p>
+<div class="math notranslate nohighlight" id="eq-selfsim-mdandmodot">
+<span id="equation-eq-selfsim-mdandmodot"></span><span class="eqno">(2)<a class="headerlink" href="#eq-selfsim-mdandmodot" title="Link to this equation"></a></span>\[M_\mathrm{d} (t) = M_{\mathrm{d}, 0} \left( 1 + \frac{t}{t_{\nu}} \right)^{1 - \eta}, \qquad \dot M (t) = (\eta - 1) \frac{M_{\mathrm{d}, 0}}{t_{\nu}} \left( 1 + \frac{t}{t_{\nu}} \right)^{- \eta},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta = (5/2 - \gamma)/(2 - \gamma)\)</span> and the viscous timescale <span class="math notranslate nohighlight">\(t_{\nu} = {R_c}^2/[3(2-\gamma)^2 \nu(R = R_c)]\)</span> at the characteristic radius <span class="math notranslate nohighlight">\(R_c\)</span>.</p>
+<p><strong>MHD wind-driven accretion</strong></p>
+<p>There are two classes of analytical solutions to Equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a> in the MHD wind-driven scenario, associated with a specific prescription of <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">(Tabone et al. 2022)</a>.</p>
+<ul class="simple">
+<li><p>The simplest class of solutions (so-called <em>hybrid solutions</em>), which highlight the main features of wind-driven accretion in comparison to the viscous model, assume a constant <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> with time; these solutions depend on the value of <span class="math notranslate nohighlight">\(\psi \equiv \alpha_{\mathrm{DW}}/\alpha_{\mathrm{SS}}\)</span>, which quantifies the relative strength of the radial and vertical torque. In this case, the solution reads</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="eq-solution-hybrid">
+<span id="equation-eq-solution-hybrid"></span><span class="eqno">(3)<a class="headerlink" href="#eq-solution-hybrid" title="Link to this equation"></a></span>\[\Sigma(r, t) = \frac{M_{\mathrm{d}}(t)}{2 \pi r_c(t)^2} \left( 1 + \frac{t}{(1+\psi)t_{\mathrm{acc}, 0}} \right)^{-\left( \frac{5}{2} + \xi + \frac{\psi}{2} \right)} \left( \frac{r}{r_c(t)} \right)^{-1 + \xi} e^{-r/r_c(t)}\]</div>
+<p>and the disc mass and accretion rate will be</p>
+<div class="math notranslate nohighlight" id="eq-hybrid-mdandmdot">
+<span id="equation-eq-hybrid-mdandmdot"></span><span class="eqno">(4)<a class="headerlink" href="#eq-hybrid-mdandmdot" title="Link to this equation"></a></span>\[M_\mathrm{d} (t) = M_0 \left( 1 + \frac{t}{(1 + \psi) t_{\mathrm{acc}, 0}} \right)^{-(\psi + 2 \xi + 1)/2}, \qquad \dot{M} (t) = \dot{M}_0 \left( 1 + \frac{t}{(1 + \psi) t_{\mathrm{acc}, 0}} \right)^{-(\psi + 4 \xi + 3)/2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{M}_0\)</span> is defined as <span class="math notranslate nohighlight">\(\dot{M}_0 = \frac{\psi + 1 + 2 \xi}{\psi + 1} \frac{M_0}{2 t_{\mathrm{acc}, 0}} \frac{1}{(1+f_{\mathrm{M}_0})}\)</span> and the other parameters are described in <a class="reference internal" href="basics.html#target-to-discevol"><span class="std std-ref">disc evolution</span></a>.</p>
+<ul class="simple">
+<li><p>Another class of solutions, which describe the unknown evolution of the magnetic field strength, assume a varying <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> with time. To obtain these, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">(Tabone et al. 2022)</a> parameterised <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}(t) \propto \Sigma_{\mathrm{c}} (t)^{-\omega}\)</span>, with <span class="math notranslate nohighlight">\(\Sigma_{\mathrm{c}} = M_{\mathrm{d}}(t)/2 \pi {R_c}^2 (t)\)</span> (where <span class="math notranslate nohighlight">\(R_c\)</span> is a characteristic radius) and <span class="math notranslate nohighlight">\(\omega\)</span> as a free parameter, and neglect the radial transport of angular momentum (<span class="math notranslate nohighlight">\(\alpha_{\mathrm{SS}} = 0\)</span>). The solution in this framework reads</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="eq-solution-mhd">
+<span id="equation-eq-solution-mhd"></span><span class="eqno">(5)<a class="headerlink" href="#eq-solution-mhd" title="Link to this equation"></a></span>\[\Sigma(r, t) = \frac{M_{\mathrm{d}}(t)}{2 \pi r_c(t)^2} \left( 1 - \frac{\omega}{2 t_{\mathrm{acc}, 0}} t \right)^{1/\omega} \left( \frac{r}{r_c(t)} \right)^{-1 + \xi} e^{-r/r_c(t)}\]</div>
+<p>and the disc mass and accretion rate are</p>
+<div class="math notranslate nohighlight" id="eq-mhd-mdandmdot">
+<span id="equation-eq-mhd-mdandmdot"></span><span class="eqno">(6)<a class="headerlink" href="#eq-mhd-mdandmdot" title="Link to this equation"></a></span>\[M_\mathrm{d} (t) = M_0 \left( 1 - \frac{\omega}{2 t_{\mathrm{acc}, 0}} t \right)^{1/\omega}, \qquad \dot{M} (t) = \frac{M_0}{2 t_{\mathrm{acc}, 0} (1+f_{\mathrm{M}, 0})} \left( 1 - \frac{\omega}{2 t_{\mathrm{acc}, 0}} t \right)^{-1+1/\omega};\]</div>
+</section>
+<section id="numerical-integration">
+<h3><span class="section-number">3.2.2. </span>Numerical integration<a class="headerlink" href="#numerical-integration" title="Link to this heading"></a></h3>
+<p>Our solution algorithm employs an operator splitting method: the original equation is separated into different parts over a time step, and the solution to each part is computed separately. Then, all the solutions are combined together to form a solution to the original equation. We split Equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a> into five different pieces, related to viscosity, wind-driven accretion onto the central star, wind-driven mass loss, internal and external photoevaporation respectively. Furthermore, Diskpop includes the possibility to trace the dust evolution in the disc, which is split in radial drift and dust diffusion. In the following, we describe the solution algorithm for each process.</p>
+<ul>
+<li><p><strong>Viscous accretion:</strong> the standard viscous solver is based on the freely available code by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.469.3994B/abstract">Booth et al. (2017)</a>. We assume a radial temperature profile <span class="math notranslate nohighlight">\(T \propto R^{-1/2}\)</span>, which results in <span class="math notranslate nohighlight">\(c_{s} \propto R^{-1/4}\)</span> and <span class="math notranslate nohighlight">\(H/R \propto R^{1/4}\)</span>. Note that this implies <span class="math notranslate nohighlight">\(\nu \propto R\)</span> (i.e., <span class="math notranslate nohighlight">\(\gamma = 1\)</span>). We assume <span class="math notranslate nohighlight">\(H/R = 1/30\)</span> at 1 AU and a mean molecular weight of 2.4. We refer to the original paper for details on the algorithm.</p></li>
+<li><p><strong>Wind-driven accretion:</strong> the second term in Equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a> is effectively an advection term. The general form of the advection equation for a quantity <em>q</em> with velocity <em>v</em> is <span class="math notranslate nohighlight">\(\partial_t q(x, t) + v \partial_x q(x, t) = 0\)</span>; in the case of wind-driven accretion, the advected quantity is <span class="math notranslate nohighlight">\(R \Sigma\)</span>, while the advection (inwards) velocity is given by <span class="math notranslate nohighlight">\(v_{\mathrm{DW}} = (3 \alpha_{\mathrm{DW}} H c_s)/2R\)</span>. We solve the advection equation with an explicit upwind algorithm (used also for dust radial drift).</p></li>
+<li><p><strong>Wind-driven mass loss:</strong> the mass loss term (third in Equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a>) does not involve any partial derivative, and therefore is simply integrated in time multiplying by the time step.</p></li>
+<li><p><strong>Internal photoevaporation:</strong> effectively, internal photoevaporation (implemented through the model of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012MNRAS.422.1880O/abstract">Owen et al. 2012</a>) is another mass loss term - therefore, as above, its contribution is computed with a simple multiplication by the time step. Once the accretion rate of the disc drops below the photoevaporative mass loss rate, a gap opens in the disc at the radius of influence of photoevaporation: in the model of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012MNRAS.422.1880O/abstract">Owen et al. (2012)</a>, the prescription changes depending on the radial location in the disc, with respect to the gap itself. Later, the gap continues to widen; when it eventually becomes larger than the disc, we stop the evolution and consider the disc as dispersed.</p></li>
+<li><p><strong>External photoevaporation:</strong> for a given stellar mass and FUV flux experienced by the disc, the mass loss rate arising from external photoevaporation is obtained, at each radial position, from a bi-linear interpolation of the FRIEDv2 grid <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.526.4315H/abstract">(Haworth et al. 2023)</a> using the disc surface density at each radial cell. The outside-in depletion of material is implemented following the numerical approach of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.2845S/abstract">Sellek et al. (2020)</a>: we define the _truncation_ radius, <span class="math notranslate nohighlight">\(R_{\mathrm{t}}\)</span>, as the position in the disc corresponding to the maximum photoevaporation rate (which is related to the optically thin/thick transition of the wind), and we remove material from each grid cell at <span class="math notranslate nohighlight">\(R&gt;R_{\mathrm{t}}\)</span> weighting on the total mass outside this radius. The mass loss attributed to the cell i can be written as:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\dot{M}_{\mathrm{ext},i} = \dot{M}_{\mathrm{tot}} \frac{M_{i}}{M(R&gt;R_{\mathrm{t}})},\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_{i}\)</span> is the mass contained in the cell <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(\dot{M}_{\mathrm{tot}}\)</span> is the total mass loss rate outside the truncation radius.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Dust evolution:</strong> based on the two populations model by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012A%26A...539A.148B/abstract">Birnstiel et al. (2012)</a> and the implementation of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.469.3994B/abstract">Booth et al. (2017)</a>. We consider the dust grain distribution to be described by two representative sizes, a constant monomer size and a time-dependent larger size, which can grow up to the limit imposed by the fragmentation and radial drift barriers. We evolve the dust fraction of both sizes following <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2014MNRAS.440.2136L/abstract">Laibe&amp;Price (2014)</a>, and also include a diffusive term: the diffusion comes from the coupling with the turbulent gas, which has the effect of mixing the dust grains, counteracting gradients in concentration <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2010A%26A...513A..79B/abstract">(Birnstiel et al. 2010)</a>. The dust-gas relative velocities are computed following <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...625..414T/abstract">Tanaka et al. (2005)</a> and include feedback on the gas component. We refer to <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.469.3994B/abstract">Booth et al. (2017)</a> for details on the numerical implementation.</p></li>
+</ul>
+<p>The separate pieces of Equation <a class="reference internal" href="basics.html#eq-1"><span class="std std-ref">(1)</span></a> must be solved over the same time step to be joined in a coherent solution. We calculate the time step for each process imposing the Courant-Friedrichs-Lewy (CFL) condition. The CFL condition reads <span class="math notranslate nohighlight">\(\Delta t = C \mathrm{ min}(\Delta x / v)\)</span> and ensures that, within one time step <span class="math notranslate nohighlight">\(\Delta t\)</span>, the material moving at velocity _v_ does not flow further than one grid spacing <span class="math notranslate nohighlight">\(\Delta x\)</span>. The Courant number _C_ must be positive and smaller than 1, with <span class="math notranslate nohighlight">\(C = 1\)</span> corresponding to the maximum allowed timestep to keep the algorithm stable. In our implementation, we pick <span class="math notranslate nohighlight">\(C = 0.5\)</span>. We use zero gradients boundary conditions, setting the value of the first and last cell in our grid to that of the second and second to last. We solve the equation on a radial grid of <span class="math notranslate nohighlight">\(10^3\)</span> points with power-law spacing and exponent <span class="math notranslate nohighlight">\(1/2\)</span>, extending from <span class="math notranslate nohighlight">\(3 \times 10^{-3}`\)</span> au to <span class="math notranslate nohighlight">\(10^4\)</span> au. From the physical point of view, this choice corresponds to assuming boundary layer accretion (see., e.g., <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ApJ...415L.127P/abstract">Popham et al. 1993</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996ApJ...461..933K/abstract">Kley&amp;Lin 1996</a>) - however the difference from magnetic truncation accretion is negligible beyond <span class="math notranslate nohighlight">\(\sim 10^{-3}\)</span> au.</p>
+<p>After each process has been solved separately, all the pieces are put back together to compute the new surface density, from which the integrated disc quantities are then calculated. As each disc evolves independently of the others in the population, the solver can easily be run in parallel.</p>
+</section>
+</section>
+<section id="disc-dispersal">
+<h2><span class="section-number">3.3. </span>Disc dispersal<a class="headerlink" href="#disc-dispersal" title="Link to this heading"></a></h2>
+<p>In Section <a class="reference internal" href="basics.html#target-to-basics"><span class="std std-ref">1</span></a>, under <a class="reference internal" href="basics.html#target-to-discdispersal"><span class="std std-ref">disc dispersal</span></a>, we have discussed the physical mechanisms that can lead to the dispersion of protoplanetary discs. From the numerical point of view, disc in Diskpop are considered dispersed if they satisfy one of two conditions:</p>
+<ul class="simple">
+<li><p><em>Reaching an input mass threshold.</em> To account for the observational limits in detecting very low-mass discs, the _limit_discmass_ parameter in <cite>parameters.json</cite> can be set to represent the lowest possible disc gas mass after which the disc will be considered as effectively dispersed. This also allows to analyse the impact of more or less conservative assumptions on the observational sensitivities. When this condition is reached, the code prints on screen “Disc with identifier # has been dispersed!”.</p></li>
+<li><p><em>Internal photoevaporation carving too large of a gap.</em> When internal photoevaporation is present, a gap opens within the disc and grows in time. Eventually, the gap might become larger than the disc itself: in that case, the disc is effectively dispersed, and the code will print on screen “The hole is too large - I will stop the evolution now”.</p></li>
+</ul>
+<p>Once a disc is dispersed, it moves from being a Class II object to a Class III (a discless star) and keeps on evolving while only
+updating the stellar parameters.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_interface.html" class="btn btn-neutral float-left" title="2. User Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="popcorn.html" class="btn btn-neutral float-right" title="4. popcorn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

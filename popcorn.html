@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. popcorn &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Troubleshooting, bugs and features" href="bugs_features.html" />
+    <link rel="prev" title="3. Solution Algorithm" href="solution_algorithm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. popcorn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">4.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#popcorn-functions">4.2. popcorn functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#used-in-the-tutorial-notebook">4.2.1. Used in the tutorial notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-functions">4.2.2. Additional functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial">4.3. Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>popcorn</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/popcorn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/popcorn_logo.png" id="target-to-popcorn"><img alt="Alternative text" class="align-center" id="target-to-popcorn" src="_images/popcorn_logo.png" style="width: 300px;" /></a>
+<section id="popcorn">
+<h1><span class="section-number">4. </span>popcorn<a class="headerlink" href="#popcorn" title="Link to this heading"></a></h1>
+<p>popcorn is a Python library to analyse the output of Diskpop (described <a class="reference internal" href="user_interface.html#target-to-output"><span class="std std-ref">here</span></a>).
+popcorn is automatically installed with Diskpop, say sth here
+popcorn performs bets in a Jupyter notebook environment. In the Diskpop repository, under the <cite>examples`</cite> folder, we provide two
+example notebooks reading a viscous and a MHD wind-driven population respectively.</p>
+<section id="installation">
+<h2><span class="section-number">4.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>popcorn can be installed from the Python Package Index as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>popcorn_diskpop
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installation of popcorn and Diskpop <strong>forces the installation of the 1.21 version of numpy</strong> because of compatibility issues
+with the following versions. We recommend setting up a virtual environment to avoid possible conflicts with other
+codes.</p>
+</div>
+<p>In the following, we describe the available functions.</p>
+</section>
+<section id="popcorn-functions">
+<h2><span class="section-number">4.2. </span>popcorn functions<a class="headerlink" href="#popcorn-functions" title="Link to this heading"></a></h2>
+<section id="used-in-the-tutorial-notebook">
+<span id="target-to-used-in-tut"></span><h3><span class="section-number">4.2.1. </span>Used in the tutorial notebook<a class="headerlink" href="#used-in-the-tutorial-notebook" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>popcorn.print_info(evolved_population)</strong></p></li>
+</ul>
+<p>Prints all the simulations parameters, as input in <a class="reference internal" href="user_interface.html#target-to-initial-parameters"><span class="std std-ref">parameters.json</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evolvedpop</span> <span class="o">=</span> <span class="n">EvolvedPopulation</span><span class="p">(</span><span class="s1">&#39;filename.hdf5&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">popcorn</span><span class="o">.</span><span class="n">print_info</span><span class="p">(</span><span class="n">evolvedpop</span><span class="p">)</span>
+
+<span class="go">Simulation Parameters</span>
+<span class="go">Simulating a population of 100 objects</span>
+<span class="go">Not using dust</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>load_data_pop_alltimes(evolved_population)</strong></p></li>
+</ul>
+<p>Returns a dictionary of N elements, where N is the number of timesteps. Generating the dictionary through this function is
+a necessary step to load the arrays.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>A dictionary containing pandas DataFrames of N elements, where N is the number of input timesteps.</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">popcorn</span><span class="o">.</span><span class="n">load_data_pop_alltimes</span><span class="p">(</span><span class="n">evolvedpop</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>popcorn.evolved_timesteps(evolved_population, data)</strong></p></li>
+</ul>
+<p>Returns a numpy array filled with the input timesteps in Myr (<cite>times_snapshots</cite> in the parameters.json file).</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+<p><strong>data</strong>: dictionary (pandas DataFrame) containing the simulation output, created by the <cite>load_data_pop_alltimes</cite> function</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>Numpy array filled with the input timesteps, in Myr.</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">timesteps</span> <span class="o">=</span> <span class="n">popcorn</span><span class="o">.</span><span class="n">evolved_timesteps</span><span class="p">(</span><span class="n">evolvedpop</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="go">array([1e-3, 1e-2, 1e-1, 1, 5, 10])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>popcorn.load_arrays(evolved_population, data, timesteps, mhd = False)</strong></p></li>
+</ul>
+<p>Returns a set of arrays filled with the disc and stellar properties for all YSOs in the population at required ages.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+<p><strong>data</strong>: list of pandas DataFrames, created by the <cite>load_data_pop_alltimes</cite> function</p>
+<dl class="simple">
+<dt><strong>timesteps</strong>: array of ages at which the disc and stellar properties are extracted. It needs to contain</dt><dd><p>ages at which Diskpop output was produced (i.e., values that were input in <cite>times_snapshots</cite>
+in the parameters.json file) as it <em>recovers</em> the parameter from the simulation and does not interpolate them.</p>
+</dd>
+<dt><strong>mhd</strong>: <cite>True</cite> if the population evolved under the influence of MHD winds, <cite>False</cite> otherwise (default is <cite>False</cite>).</dt><dd><p>Depending on the value of this parameter, the number of output arrays changes; if <cite>True</cite>, it includes also
+<span class="math notranslate nohighlight">\(f_{\mathrm{M}, 0}\)</span>, <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> and the plasma <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>Set of numpy N-D arrays filled with the disc and stellar properties.</p>
+<ul class="simple">
+<li><p><strong>mstar</strong>: stellar masses [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>], 2D (mstar[i][j] is the stellar mass at the i-th timestep of the j-th object).</p></li>
+<li><p><strong>mdisc</strong>: disc gas masses [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>], 2D (same as mstar).</p></li>
+<li><p><strong>mdot</strong>: accretion rate on the star [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>/yr], 2D (same as mstar)</p></li>
+<li><p><strong>sigma_g</strong>: gas surface density at all disc radii [g/cm^2], 3D (sigma_g[i][j][k] is the surface density of the j-th object at the i-th timestep in the k-th radial location).</p></li>
+<li><p><strong>tacc0_Myr</strong>: initial accretion timescale (viscous timescale in the viscous case) [Myr], 1D (tacc0_Myr[i] is the initial accretion timescale of the i-th object).</p></li>
+<li><p><strong>Rd</strong>: disc gas radius [au], 2D (same as mstar).</p></li>
+<li><p><strong>mask</strong>: boolean mask on the object type, containing <cite>True</cite> if Class II and <cite>False</cite> if Class III, 2D (same as mstar).</p></li>
+</ul>
+<p>Only if mhd=True:</p>
+<ul class="simple">
+<li><p><strong>fM0</strong>: <span class="math notranslate nohighlight">\(f_{\mathrm{M}, 0}\)</span> parameter from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a>, 1D (same as tacc0_Myr).</p></li>
+<li><p><strong>alpha_DW</strong>: <span class="math notranslate nohighlight">\(\alpha_{\mathrm{DW}}\)</span> parameter from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a>, 1D (same as tacc0_Myr).</p></li>
+<li><p><strong>beta</strong>: plasma <span class="math notranslate nohighlight">\(\beta\)</span> parameter, 1D (same as tacc0_Myr).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mstar</span><span class="p">,</span> <span class="n">mdisc</span><span class="p">,</span> <span class="n">mdot</span><span class="p">,</span> <span class="n">sigma_g</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">tacc0_Myr</span><span class="p">,</span> <span class="n">Rd</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">popcorn</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="n">evolvedpop</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">mhd</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mdisc</span>
+<span class="go">[array([1.16110830e-06, 1.27484691e-05, ...]), array([1.13979059e-06, 1.26284132e-05, ...]), ...]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="additional-functions">
+<h3><span class="section-number">4.2.2. </span>Additional functions<a class="headerlink" href="#additional-functions" title="Link to this heading"></a></h3>
+<p>Users of Diskpop will most likely only need the functions described <a class="reference internal" href="#target-to-used-in-tut"><span class="std std-ref">above</span></a>; in the following,
+we describe the rest of the popcorn functions (which are used in the main ones described above) for completeness.</p>
+<ul>
+<li><p><strong>popcorn.load_data_population(evolved_population, time_index)</strong></p>
+<p>Same as <strong>popcorn.load_data_pop_alltimes</strong>, but limited to a single timestep.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+<p><strong>time_index</strong>: index corresponding to the output age of the population in the _timesteps_ array (timesteps[time_index]
+is the desired age in Myr).</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>A dictionary containing a pandas DataFrames of disc properties at age <cite>timesteps[time_index]</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>popcorn.load_data_alltimes(evolved_population, yso_index)</strong></p>
+<p>Same as <strong>popcorn.load_data_pop_alltimes</strong>, but limited to a single disc in the population.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+<p><strong>yso_index</strong>: index corresponding to the required YSO in the population.</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>A dictionary containing a pandas DataFrames of disc properties at all ages for the yso_index-th YSO.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>popcorn.load_data(evolved_population, yso_index, time_index, verbose = False)</strong></p>
+<p>Same as <strong>popcorn.load_data_pop_alltimes</strong>, but limited to a single disc in the population at a single age.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>evolved_population</strong>: object of type EvolvedPopulation</p>
+<p><strong>yso_index</strong>: index corresponding to the required YSO in the population.</p>
+<p><strong>time_index</strong>: index corresponding to the output age of the population in the _timesteps_ array (timesteps[time_index]
+is the desired age in Myr).</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>A dictionary containing a pandas DataFrames of disc properties of the yso_index-th YSO at age timesteps[time_index].</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>popcorn.convert(data)</strong></p>
+<blockquote>
+<div><p>Converts the radius from cm to au and the disc mass (both in gas and dust, if applicable) from grams to <span class="math notranslate nohighlight">\(M_{\odot}\)</span>.</p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>data</strong>: dictionary (pandas DataFrame) containing the simulation output, created by the <cite>load_data_pop_alltimes</cite> function</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> converted input dictionary (pandas DataFrame).</p>
+</div></blockquote>
+<ul>
+<li><p><strong>popcorn.fildic2df(fulldata, wanted_keys)</strong></p>
+<p>Filters a dictionary, returning a new one with only the chosen variables.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p><strong>fulldata</strong>: full dictionary (pandas DataFrame) to be filtered.</p>
+<p><strong>wanted_keys</strong>: list of variables to be mainteined in the new dictionary</p>
+<p>(ex. wanted_keys =
+[‘t_Myear’, ‘sigma_g’]).</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> filtered input dictionary (pandas DataFrame).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">popcorn</span><span class="o">.</span><span class="n">fildic2df</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">wanted_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;t_Myear&#39;</span><span class="p">,</span> <span class="s1">&#39;sigma_g&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>popcorn.g2Msun(mass)</strong>:
+Converts a mass from grams to solar masses.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>mass</strong>: mass in grams.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> mass in solar masses.</p>
+</li>
+<li><p><strong>popcorn.cm2au(length)</strong>:
+Converts a length from cm to au.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>length</strong>: length in cm.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> length in au.</p>
+</li>
+<li><p><strong>popcorn.second2year(time)</strong>:
+Converts a time from seconds to years.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>length</strong>: time in seconds.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> time in years.</p>
+</li>
+<li><p><strong>popcorn.year2second(time)</strong>:
+Converts a time from years to seconds.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p><strong>length</strong>: time in years.</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> time in seconds.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="tutorial">
+<h2><span class="section-number">4.3. </span>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h2>
+<p>Tutorial notebooks to use the main features of popcorn are available under the ‘examples’ folder in  <a class="reference external" href="https://bitbucket.org/diskpopteam/diskpop/src/master/">the Diskpop bitbucket repository</a>. The folder includes two jupyter notebooks and their corresponding output files, to read a viscous and MHD-wind driven population respectively.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="solution_algorithm.html" class="btn btn-neutral float-left" title="3. Solution Algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bugs_features.html" class="btn btn-neutral float-right" title="5. Troubleshooting, bugs and features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
