@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Troubleshooting, bugs and features &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="4. popcorn" href="popcorn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Bugs and features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reported-issues">5.1. Reported issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-bugs-and-requesting-features">5.2. Reporting bugs and requesting features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bug-reports">5.2.1. Bug reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requesting-new-features">5.2.2. Requesting new features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-developers">5.2.3. Active developers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Troubleshooting, bugs and features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/bugs_features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="center" id="troubleshooting-bugs-and-features">
+<span id="target-to-bugsandfeatures"></span><h1><span class="section-number">5. </span>Troubleshooting, bugs and features<a class="headerlink" href="#troubleshooting-bugs-and-features" title="Link to this heading"></a></h1>
+<section id="reported-issues">
+<h2><span class="section-number">5.1. </span>Reported issues<a class="headerlink" href="#reported-issues" title="Link to this heading"></a></h2>
+<p>Having trouble installing or running Diskpop? The list of reported issues below might have the answer to your question. Should it not help, please refer to ‘Bug reports’ below.</p>
+<ul class="simple">
+<li><p><strong>Deprecation warnings.</strong> The installation of Diskpop and popcorn forces numpy==1.21 to be installed. However, users with outdated pip versions have experienced troubles with automatically obtaining the requested versions of the included packages. We recommend upgrading pip to the latest release before installing the codes. Alternatively, downgrading numpy to 1.21 should solve the issue of deprecated commands.</p></li>
+</ul>
+</section>
+<section id="reporting-bugs-and-requesting-features">
+<h2><span class="section-number">5.2. </span>Reporting bugs and requesting features<a class="headerlink" href="#reporting-bugs-and-requesting-features" title="Link to this heading"></a></h2>
+<section id="bug-reports">
+<h3><span class="section-number">5.2.1. </span>Bug reports<a class="headerlink" href="#bug-reports" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>If you find a bug in the code, please open a bug report issue from Bitbucket describing the nature of the bug as well as the
+conditions to reproduce it.</p>
+</div></blockquote>
+</section>
+<section id="requesting-new-features">
+<h3><span class="section-number">5.2.2. </span>Requesting new features<a class="headerlink" href="#requesting-new-features" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>If you think a new feature would improve Diskpop or you have an idea to implement a new module, you can open a
+feature request issue on Bitbucket.</p>
+</div></blockquote>
+</section>
+<section id="active-developers">
+<h3><span class="section-number">5.2.3. </span>Active developers<a class="headerlink" href="#active-developers" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>For any other concern or to contact the active developers, please reach out to</p>
+<ul class="simple">
+<li><p>Alice Somigliana (<a class="reference external" href="mailto:alice&#46;somigliana&#37;&#52;&#48;eso&#46;org">alice<span>&#46;</span>somigliana<span>&#64;</span>eso<span>&#46;</span>org</a>)</p></li>
+<li><p>Giovanni Rosotti (<a class="reference external" href="mailto:giovanni&#46;rosotti&#37;&#52;&#48;unimi&#46;it">giovanni<span>&#46;</span>rosotti<span>&#64;</span>unimi<span>&#46;</span>it</a>)</p></li>
+<li><p>Rossella Anania (<a class="reference external" href="mailto:rossella&#46;anania&#37;&#52;&#48;unimi&#46;it">rossella<span>&#46;</span>anania<span>&#64;</span>unimi<span>&#46;</span>it</a>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="popcorn.html" class="btn btn-neutral float-left" title="4. popcorn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

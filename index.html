@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Python code for population synthesis of protoplanetary discs &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Basic Functioning" href="basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">A Python code for population synthesis of protoplanetary discs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/Logo_transparent.png"><img alt="Alternative text" src="_images/Logo_transparent.png" style="width: 1000px;" /></a>
+<section class="center" id="a-python-code-for-population-synthesis-of-protoplanetary-discs">
+<h1>A Python code for population synthesis of protoplanetary discs<a class="headerlink" href="#a-python-code-for-population-synthesis-of-protoplanetary-discs" title="Link to this heading"></a></h1>
+<p>Diskpop is a Python code used to generate and evolve synthetic populations of protoplanetary discs. It includes the viscous, hybrid and MHD-wind driven accretion prescriptions, internal and external photoevaporation, as well as dust evolution.</p>
+<p>The physical processes and solution algorithms employed are described in  <a class="reference internal" href="solution_algorithm.html#target-to-solution"><span class="std std-ref">Solution algorithms</span></a>, while the initial conditions are discussed in <a class="reference internal" href="user_interface.html#target-to-initial-parameters"><span class="std std-ref">Initial conditions</span></a>.</p>
+<p>To analyse the raw output of Diskpop, the Python library <a class="reference internal" href="popcorn.html#target-to-popcorn"><span class="std std-ref">popcorn</span></a> is available. Both codes have been published in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2024arXiv240721101S/abstract">Somigliana et al. (2024)</a>.</p>
+<section id="using-diskpop-for-your-work">
+<h2>Using Diskpop for your work<a class="headerlink" href="#using-diskpop-for-your-work" title="Link to this heading"></a></h2>
+<p>Diskpop and popcorn are freely available for the community to use. If you use Diskpop simulations in your work, please make sure to cite <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2024arXiv240721101S/abstract">Somigliana et al. (2024)</a>. The code is based on Richard Booth’s repository, and the dust module is entirely forked with no modifications; if you include dust in your simulations, please cite also <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.469.3994B/abstract">Booth et al. (2017)</a>.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Diskpop can be installed from terminal as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>diskpop
+</pre></div>
+</div>
+<p>Alternatively, it is also possible to clone the Bitbucket repository.</p>
+<p>Likewise, the output analysis library popcorn can be installed from terminal as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>popcorn_diskpop
+</pre></div>
+</div>
+<p>or accessed cloning the Bitbucket repository.</p>
+</section>
+<section id="diskpop-team">
+<h2>Diskpop Team<a class="headerlink" href="#diskpop-team" title="Link to this heading"></a></h2>
+<p>Diskpop and popcorn have been developed by Alice Somigliana, Giovanni Rosotti, Marco Tazzari, Leonardo Testi, Giuseppe Lodato,
+Claudia Toci, Rossella Anania, and Benoît Tabone. Both codes are under active development; for questions or bugs report,
+see <a class="reference internal" href="bugs_features.html#target-to-bugsandfeatures"><span class="std std-ref">Bugs and features</span></a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#disc-evolution">1.1. Disc evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#disc-dispersal">1.2. Disc dispersal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">2. User interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html#initial-parameters">2.1. Initial parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_interface.html#parameters-options">2.1.1. parameters_options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_interface.html#parameters-population">2.1.2. parameters_population</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_interface.html#parameters-singledisc">2.1.3. parameters_singledisc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html#running-diskpop">2.2. Running Diskpop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html#output">2.3. Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="solution_algorithm.html#generation-of-the-initial-population">3.1. Generation of the initial population</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solution_algorithm.html#evolution-algorithm">3.2. Evolution algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="solution_algorithm.html#analytical-solutions">3.2.1. Analytical solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solution_algorithm.html#numerical-integration">3.2.2. Numerical integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="solution_algorithm.html#disc-dispersal">3.3. Disc dispersal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="popcorn.html#installation">4.1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="popcorn.html#popcorn-functions">4.2. popcorn functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="popcorn.html#used-in-the-tutorial-notebook">4.2.1. Used in the tutorial notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="popcorn.html#additional-functions">4.2.2. Additional functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="popcorn.html#tutorial">4.3. Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bugs_features.html#reported-issues">5.1. Reported issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bugs_features.html#reporting-bugs-and-requesting-features">5.2. Reporting bugs and requesting features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bugs_features.html#bug-reports">5.2.1. Bug reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugs_features.html#requesting-new-features">5.2.2. Requesting new features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugs_features.html#active-developers">5.2.3. Active developers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading"></a></h2>
+<p>This project was partly supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - Ref no. 325594231 FOR 2634/2 TE 1024/2-1, by the DFG Cluster of Excellence Origins (www.origins-cluster.de). This projec has received funding from the European Research Council (ERC) via the ERC Synergy Grant ECOGAL (grant 855130).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basics.html" class="btn btn-neutral float-right" title="1. Basic Functioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

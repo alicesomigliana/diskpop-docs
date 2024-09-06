@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. User Interface &mdash; Diskpop 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/pygments.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Solution Algorithm" href="solution_algorithm.html" />
+    <link rel="prev" title="1. Basic Functioning" href="basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/Logo_transparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">1. Basic Functioning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. User interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initial-parameters">2.1. Initial parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-options">2.1.1. parameters_options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-population">2.1.2. parameters_population</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-singledisc">2.1.3. parameters_singledisc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-diskpop">2.2. Running Diskpop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">2.3. Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solution_algorithm.html">3. Solution algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="popcorn.html">4. popcorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs_features.html">5. Bugs and features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Diskpop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>User Interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_interface.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="center" id="user-interface">
+<span id="target-to-user-interface"></span><h1><span class="section-number">2. </span>User Interface<a class="headerlink" href="#user-interface" title="Link to this heading"></a></h1>
+<p>The user interface of Diskpop is the <strong>parameters.json</strong> file, which stores all of the user-defined parameters to initialise
+the disc population and customise the type of evolution. The output is printed on an .hdf5 file that can be read with the library
+popcorn (described in the <a class="reference internal" href="popcorn.html#target-to-popcorn"><span class="std std-ref">dedicated section</span></a>).</p>
+<section id="initial-parameters">
+<span id="target-to-initial-parameters"></span><h2><span class="section-number">2.1. </span>Initial parameters<a class="headerlink" href="#initial-parameters" title="Link to this heading"></a></h2>
+<p>The default <strong>parameters.json</strong> is shown below:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">	</span><span class="nt">&quot;parameters_options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">			</span><span class="nt">&quot;options.MONTECARLO&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;options.CORRELATION&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;options.REPRODUCIBILITY&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;options.MHD&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;options.INTERNAL_PHOTOEV&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;options.DO_PLOTS&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">		    </span><span class="nt">&quot;multiprocessing_options&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">				</span><span class="nt">&quot;parallel_evol&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">				</span><span class="nt">&quot;all_available_proc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">				</span><span class="nt">&quot;nproc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">			</span><span class="p">}</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">		</span>
+<span class="w">	</span><span class="nt">&quot;parameters_population&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">		</span><span class="p">{</span>
+<span class="w">		</span>
+<span class="w">			</span><span class="nt">&quot;parameters_general&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span>
+<span class="w">					</span><span class="nt">&quot;output_name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;nysos&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;analytic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;times_snapshot&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span>
+<span class="w">					</span><span class="nt">&quot;alpha&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;dust&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;limit_discmass&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;d2g&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;seed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">				</span><span class="p">},</span>
+
+<span class="w">			</span><span class="nt">&quot;parameters_mhd&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span>
+<span class="w">					</span><span class="nt">&quot;leverarm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;omega&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">				</span><span class="p">},</span>
+<span class="w">				</span>
+<span class="w">				</span>
+<span class="w">			</span><span class="nt">&quot;parameters_imf&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span>
+<span class="w">					</span><span class="nt">&quot;imf&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kroupa&quot;</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mmin&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5e-2</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mmax&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">50</span>
+<span class="w">				</span><span class="p">},</span>
+<span class="w">				</span>
+<span class="w">			</span>
+<span class="w">			</span><span class="nt">&quot;parameters_correlation&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span>
+<span class="w">					</span><span class="nt">&quot;beta&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">-0.5</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;mdisc_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdisc_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1e-2</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdisc_method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;mdot_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;log_mdot_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">-8.44</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;rdisc_method&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;beta_mag_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;beta_mag_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;beta_mag_method&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;alpha_DW_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;alpha_DW_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;alpha_DW_method&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;L_x_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;L_x_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;L_x_method&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span><span class="p">,</span>
+
+<span class="w">					</span><span class="nt">&quot;mdot_photoev_norm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdot_photoev_slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdot_photoev_method&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lognormal&quot;</span>
+<span class="w">				</span><span class="p">},</span>
+<span class="w">				</span>
+<span class="w">				</span>
+<span class="w">			</span>
+<span class="w">			</span><span class="nt">&quot;parameters_nocorrelation&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span><span class="w">	</span>
+<span class="w">					</span><span class="nt">&quot;beta_mag_mean&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;alpha_DW_mean&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdisc_mean&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.003</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;rdisc_mean&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;L_x_mean&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1e30</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdot_photoev_mean&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">				</span><span class="p">},</span>
+<span class="w">						</span>
+<span class="w">								</span>
+<span class="w">						</span>
+<span class="w">			</span><span class="nt">&quot;parameters_spreads&quot;</span><span class="p">:</span>
+<span class="w">				</span><span class="p">{</span><span class="w">	</span>
+<span class="w">					</span><span class="nt">&quot;mdisc_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;rdisc_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">	</span>
+<span class="w">					</span><span class="nt">&quot;alpha_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;alpha_DW_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;beta_mag_spread&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;mdot_photoev_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">					</span><span class="nt">&quot;L_x_spread&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">	</span>
+<span class="w">				</span><span class="p">}</span>
+<span class="w">				</span>
+<span class="w">				</span>
+<span class="w">				</span>
+<span class="w">			</span><span class="p">}</span>
+<span class="w">			</span>
+<span class="w">			</span>
+<span class="w">		</span><span class="p">],</span>
+<span class="w">		</span>
+<span class="w">	</span><span class="nt">&quot;parameters_singledisc&quot;</span><span class="p">:</span>
+<span class="w">		</span><span class="p">{</span><span class="w">			           			</span>
+<span class="w">			</span><span class="nt">&quot;mdisc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">,</span><span class="w">               				</span>
+<span class="w">			</span><span class="nt">&quot;rdisc_mean&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">                    			</span>
+<span class="w">			</span><span class="nt">&quot;mstar&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span>
+<span class="w">			</span><span class="nt">&quot;alpha_DW_mean&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">,</span>
+<span class="w">			</span><span class="nt">&quot;beta_mag_mean&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">           					                   					                      						</span>
+<span class="w">		</span><span class="p">}</span><span class="w">	</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The file is structured in nested sub-groups of parameters depending on which type of property of the simulation
+they control:</p>
+<ol class="arabic simple">
+<li><p><em>parameters_options</em> set the general properties of the simulation (e.g., whether to perform a Monte-Carlo extraction of the population parameters);</p></li>
+<li><p><em>parameters_population</em> are set to simulate a whole population of discs;</p></li>
+<li><p><em>parameters_singledisc</em> are set to manually determine the disc parameters.</p></li>
+</ol>
+<p>Below is a description of the meaning (and possible choices, where applicable) of all the simulation parameters.
+The default values of all the simulation parameters are stored in the <code class="docutils literal notranslate"><span class="pre">defaults.py</span></code> file.</p>
+<section id="parameters-options">
+<h3><span class="section-number">2.1.1. </span>parameters_options<a class="headerlink" href="#parameters-options" title="Link to this heading"></a></h3>
+<p>The options can be set to either <em>true</em> (a) or <em>false</em> (b):</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the syntax: in .json files, the boolean values must be written in <em>lowercase</em>.</p>
+</div>
+<p><strong>options.MONTECARLO</strong> sets whether the disc properties are (a) determined from a distribution (to be specified further in the
+parameters file) or (b) manually set by the user;</p>
+<p><strong>options.CORRELATIONS</strong> sets whether the disc properties are determined based on the observed correlations with the stellar mass, <span class="math notranslate nohighlight">\(M_{\mathrm{d}} \propto {M_{\star}}^{\lambda_{\mathrm{m}}}\)</span> and <span class="math notranslate nohighlight">\(\dot M \propto {M_{\star}}^{\lambda_{\mathrm{acc}}}\)</span>;</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is only meaningful to set <strong>options.CORRELATION</strong> to <strong>True</strong> if <strong>options.MONTECARLO</strong> is also <strong>True</strong>.
+This is because <strong>options.MONTECARLO</strong> puts the strongest requirement on initial conditions: given that it requires
+each parameter to be set manually, it does not allow to perform a drawing of the parameters themselves (which could actually
+make use of the provided correlations).</p>
+</div>
+<p><strong>options.REPRODUCIBILITY</strong>: sets the reproducibility (a) or lack thereof (b) of the simulation. If true, setting a seed for the random extractions is required;</p>
+<p><strong>options.MHD</strong>: sets whether the discs are subjected to MHD winds (a) or not (b);</p>
+<p><strong>options.INTERNAL_PHOTOEV</strong>: sets whether the discs are subjected to internal photoevaporation (a) or not (b);</p>
+<p><strong>options.DO_PLOTS</strong>: <strong>NEED TO REMOVE THIS</strong></p>
+<dl class="simple">
+<dt><strong>multiprocessing_options</strong>: contains the parameters to set to evolve the simulation in parallel;</dt><dd><ul class="simple">
+<li><p><strong>parallel_evol</strong>: sets whether to evolve in parallel (a) or not (b);</p></li>
+<li><p><strong>all_available_proc</strong>: sets whether the simulation should take up all of the available processors on the machine (a) or not (b)</p></li>
+<li><p><strong>nproc</strong>: allows to manually set the number of processors to use (has to be an integer number).</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="parameters-population">
+<h3><span class="section-number">2.1.2. </span>parameters_population<a class="headerlink" href="#parameters-population" title="Link to this heading"></a></h3>
+<p>Within <em>parameters_population</em> there are 6 additional levels: <em>parameters_general</em>, <em>parameters_mhd</em>, <em>parameters_imf</em>,
+<em>parameters_correlations</em>, <em>parameters_nocorrelation</em> and <em>parameters_spreads</em>:</p>
+<ul>
+<li><p><strong>parameters_general</strong></p>
+<blockquote>
+<div><p>These parameters set the general properties of the simulation and must be set regardless of the type of population and disc evolution.</p>
+<ul class="simple">
+<li><p><strong>output_name</strong>: sets the .hdf5 output file name. Can be any string, default value is <cite>default</cite>.</p></li>
+</ul>
+<p>If <cite>default</cite>, the file name will be assembled combining
+the key parameters. With options.MONTECARLO = True, it will be set as ‘(no)dust_Montecarl_corr=(true)false_XYZ’ depending
+on the presence of dust and correlation between the parameters, where XYZ is the date and time of the simulation; with
+options.MONTECARLO = False, it will be set as ‘(no)dust_alphavalue_mdiscmean_rdiscmean_single_disc_XYZ’ combining the values
+of the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1976MNRAS.175..613S/abstract">Shakura &amp; Sunyaev (1973)</a> <span class="math notranslate nohighlight">\(\alpha\)</span> parameter,
+the mean disc mass and the mean disc radius of the simulation.</p>
+<ul class="simple">
+<li><p><strong>nysos</strong>: sets the initial number of discs in the population. Default value is <span class="math notranslate nohighlight">\(100\)</span>.</p></li>
+<li><p><strong>analytic</strong>: can be true or false and sets whether to use the analytic solution. If an analytic solution is not available for the chosen combination of parameters, an error message is printed.</p></li>
+<li><p><strong>times_snapshot</strong>: ages at which the output will be printed, in Myr. Has to be in the form [age1, age2, …].</p></li>
+<li><p><strong>alpha</strong>: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1976MNRAS.175..613S/abstract">Shakura &amp; Sunyaev (1973)</a> <span class="math notranslate nohighlight">\(\alpha\)</span> parameter</p></li>
+<li><p><strong>dust</strong>: can be true or false, sets whether to include dust in the simulation.</p></li>
+<li><p><strong>limit_discmass</strong>: sets the disc mass (in <span class="math notranslate nohighlight">\(M_{\odot}\)</span>) below which the disc is considered dispersed (see <a class="reference internal" href="basics.html#target-to-discdispersal"><span class="std std-ref">disc dispersal</span></a>). Default value is <span class="math notranslate nohighlight">\(10^{-6}\)</span>.</p></li>
+<li><p><strong>d2g</strong>: the dust-to-gas ratio of the simulation (standard value <span class="math notranslate nohighlight">\(0.01\)</span>).</p></li>
+<li><p><strong>seed</strong>: can be an integer number or <cite>null</cite>. If options.REPRODUCIBILITY is set to True, it sets the seed to use in the</p></li>
+</ul>
+<p>random number generators for the simulation to be easily reproduced. If <cite>null</cite>, the seed is not set.</p>
+</div></blockquote>
+</li>
+<li><p><strong>parameters_mhd</strong></p>
+<blockquote>
+<div><p>These parameters set the MHD wind parameters as defined by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a>. The third parameter, <span class="math notranslate nohighlight">\(\alpha_{\rm{DW}}\)</span>, is determined from the correlation with the plasma <span class="math notranslate nohighlight">\(beta\)</span> parameter (see REFREFREF).</p>
+<ul class="simple">
+<li><p><strong>leverarm</strong>: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a> <span class="math notranslate nohighlight">\(\lambda\)</span> parameter. Default value is 3.</p></li>
+<li><p><strong>omega</strong>: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a> <span class="math notranslate nohighlight">\(\omega\)</span> parameter. Default value is 0.25.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting the MHD parameters is only meaningful is options.MHD is set to true.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>parameters_imf</strong></p>
+<blockquote>
+<div><p>These parameters determine how the stellar masses of the population of YSOs are extracted, and need to be set for every type of simulation.</p>
+<ul class="simple">
+<li><p><strong>imf</strong>: sets the IMF to use to generate the population of YSOs. Possible options are <cite>kroupa</cite> (which follows the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002Sci...295...82K/abstract">Kroupa (2002)</a> prescription), <cite>single</cite> (all stars will have <span class="math notranslate nohighlight">\(M_{\star} = 1 M_{\odot}\)</span>) or <cite>custom</cite>. If <cite>custom</cite>, the user must provide a file called <cite>mstar.txt</cite> with the desired stellar masses, in the same folder as the parameters file, that will be used as input to build the population.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <strong>nysos</strong> and the lenght of the <cite>mstar.txt</cite> files differ, the former will be overwritten to match the number
+of stellar masses provided.</p>
+</div>
+<ul class="simple">
+<li><p><strong>mmin</strong>: minimum stellar mass [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>]. Default is <span class="math notranslate nohighlight">\(5 \times 10^{-2}\)</span>. If imf is <cite>kroupa</cite>, the minimum stellar mass must be smaller than <span class="math notranslate nohighlight">\(8 \times 10^{-2}\)</span>.</p></li>
+<li><p><strong>mmax</strong>: maximum stellar mass [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>]. Default is <span class="math notranslate nohighlight">\(50\)</span>. If imf is <cite>kroupa</cite>, the maximum stellar mass must be bigger than <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>parameters_correlation</strong></p>
+<blockquote>
+<div><p>These parameters determine the disc properties when <strong>options.CORRELATION</strong> is set to True.</p>
+<ul class="simple">
+<li><p><strong>beta</strong>: slope of the correlation between the disc aspect ratio and the stellar mass, <span class="math notranslate nohighlight">\(H/R \propto {M_{\star}}^{\beta}\)</span>. Default is <span class="math notranslate nohighlight">\(-0.5\)</span>.</p></li>
+<li><p><strong>mdisc_norm</strong>: disc mass for a solar-type star (normalisation of the correlation between the disc mass and the stellar mass) [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>]. Default is <span class="math notranslate nohighlight">\(5 \times 10^{-3}\)</span>.</p></li>
+<li><p><strong>mdisc_slope</strong>: slope of the correlation between the disc mass and the stellar mass, <span class="math notranslate nohighlight">\(M_{\mathrm{d}} \propto {M_{\star}}^{\text{mdisc_slope}}\)</span>. Default is 2.1. In the release paper Somigliana et al. 2024, this parameter is <span class="math notranslate nohighlight">\(\lambda_{\mathrm{m}, 0}\)</span>.</p></li>
+<li><p><strong>mdot_slope</strong>: slope of the correlation between the accretion rate and the stellar mass, <span class="math notranslate nohighlight">\(\dot M \propto {M_{\star}}^{\text{mdot_slope}}\)</span>. Default is 1.5. In the release paper Somigliana et al. 2024, this parameter is <span class="math notranslate nohighlight">\(\lambda_{\mathrm{acc}, 0}\)</span>.</p></li>
+<li><p><strong>beta_mag_norm</strong>: plasma <span class="math notranslate nohighlight">\(\beta\)</span> parameter for a solar-type star. Default is <span class="math notranslate nohighlight">\(6 \times 10^{-4}.\)</span></p></li>
+<li><p><strong>beta_mag_slope</strong>: slope of the correlation between the plasma <span class="math notranslate nohighlight">\(\beta\)</span> parameter and the stellar mass, <span class="math notranslate nohighlight">\(\beta \propto {M_{\star}}^{\text{beta_mag_slope}}\)</span>.</p></li>
+<li><p><strong>L_x_norm</strong>: stellar X luminosity for a solar-type star [erg/s] (normalisation of the correlation between the stellar X luminosity and the stellar mass). Default is <span class="math notranslate nohighlight">\(10^{30}\)</span>.</p></li>
+<li><p><strong>L_x_slope</strong>: slope of the correlation between the stellar X luminosity and the stellar mass, <span class="math notranslate nohighlight">\(L_x \propto {M_{\star}}^{\text{L_x_slope}}\)</span></p></li>
+<li><p><strong>mdot_photoev_norm</strong>: mass-loss rate due to internal photoevaporation for a solar-type star [<span class="math notranslate nohighlight">\(M_{\odot}/\rm{yr}^{-1}\)</span>] (normalisation of the correlation between the mass-loss rate and the stellar mass). Default is <span class="math notranslate nohighlight">\(6.25 \times 10^{-9}\)</span>.</p></li>
+<li><p><strong>mdot_photoev_slope</strong>: slope of the correlation between the mass-loss rate due to internal photoevaporation and the stellar mass, <span class="math notranslate nohighlight">\(\dot M_{\rm{photoev}} \propto {M_{\star}}^{\text{mdot_photoev_slope}}\)</span>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting this set of parameters is only meaningful if both options.MONTECARLO and options.CORRELATION are set to true.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>parameters_nocorrelation</strong></p>
+<blockquote>
+<div><p>These parameters determine the mean values of the disc properties when <strong>options.CORRELATION</strong> is set to False.</p>
+<ul class="simple">
+<li><p><strong>mdisc_mean</strong>: mean disc mass [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>]. Default is <span class="math notranslate nohighlight">\(5 \times 10^{-2}\)</span>.</p></li>
+<li><p><strong>rdisc_mean</strong>: mean disc radius [au]. Default is 10.</p></li>
+<li><p><strong>beta_mag_mean</strong>: mean plasma <span class="math notranslate nohighlight">\(\beta\)</span> parameter. Default is <span class="math notranslate nohighlight">\(10^6\)</span>.</p></li>
+<li><p><strong>alpha_DW_mean</strong>: mean <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.512.2290T/abstract">Tabone et al. (2022)</a> <span class="math notranslate nohighlight">\(\alpha_{\rm{DW}}\)</span> parameter. Default is <span class="math notranslate nohighlight">\(10^{-3}\)</span>.</p></li>
+<li><p><strong>L_x_mean</strong>: mean stellar X luminosity [erg/s]. Default is <span class="math notranslate nohighlight">\(10^{30}\)</span>.</p></li>
+<li><p><strong>mdot_photoev_mean</strong>: mean mass-loss rate due to internal photoevaporation [<span class="math notranslate nohighlight">\(M_{\odot}/\rm{yr}\)</span>]. Default is <span class="math notranslate nohighlight">\(10^{-9}\)</span>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting this set of parameters is only meaningful if options.MONTECARLO is set to true and options.CORRELATION is set to false.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>parameters_spreads</strong></p>
+<blockquote>
+<div><p>These parameters determine the spread of the disc parameters, regardless of whether they correlate with the stellar mass or not.</p>
+<ul class="simple">
+<li><p><strong>mdisc_spread</strong>: spread of the correlation between the disc mass and the stellar mass [dex]. Default is 0.5.</p></li>
+<li><p><strong>rdisc_spread</strong>: spread of the correlation between the disc radius and the stellar mass [dex]. Default is 0.5.</p></li>
+<li><p><strong>beta_mag_spread</strong>: spread of the correlation between the plasma <span class="math notranslate nohighlight">\(\beta\)</span> parameter and the stellar mass [dex]. Default is 0.</p></li>
+<li><p><strong>alpha_spread</strong>: spread of the correlation between the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1976MNRAS.175..613S/abstract">Shakura &amp; Sunyaev (1973)</a> <span class="math notranslate nohighlight">\(\alpha\)</span> parameter and the stellar mass [dex]. Default is 0.</p></li>
+<li><p><strong>L_x_spread</strong>: spread of the correlation between the stellar X luminosity and the stellar mass [dex]. Default is 0.1.</p></li>
+<li><p><strong>mdot_photoev_spread</strong>: spread of the correlation between the mass-loss due to internal photoevaporation and the stellar mass [dex]. Default is 0.5.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting this set of parameters is only meaningful if options.MONTECARLO is set to true - otherwise, the parameters are determined from the single disc mode.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="parameters-singledisc">
+<h3><span class="section-number">2.1.3. </span>parameters_singledisc<a class="headerlink" href="#parameters-singledisc" title="Link to this heading"></a></h3>
+<ul>
+<li><p><strong>mstar</strong>: array of stellar masses [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>] in the form [Mstar1, Mstar2, …].</p></li>
+<li><p><strong>mdisc</strong>: array of disc masses [<span class="math notranslate nohighlight">\(M_{\odot}\)</span>] in the form [Mdisc1, Mdisc2, …].</p></li>
+<li><p><strong>rdisc</strong>: array of disc radii [au] in the form [Rdisc1, Rdisc2, …].</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting this set of parameters is only meaningful if options.MONTECARLO is set to false.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="running-diskpop">
+<h2><span class="section-number">2.2. </span>Running Diskpop<a class="headerlink" href="#running-diskpop" title="Link to this heading"></a></h2>
+<p>Once the parameter are set in the <em>parameters.json</em> file, this is how to run a Diskpop simulation from terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">path_to_diskpop_folder</span>
+<span class="n">python</span> <span class="n">run_set</span><span class="o">.</span><span class="n">py</span> <span class="n">parameters</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>The simulation will print the output file name, determined with the <strong>output_name</strong> parameter, together with the number of time steps selected.
+While the simulation proceeds, the current time step is also printed. If a disc ends up being dispersed during the simulation, that information is also printed on screen.</p>
+</section>
+<section id="output">
+<span id="target-to-output"></span><h2><span class="section-number">2.3. </span>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<p>The output of a Diskpop run in a .hdf5 file named according to the choice of the <strong>output_name</strong> parameter.
+In the following, we briefly explain the structure of .hdf5 files for ease of understanding - however, the <em>popcorn</em> library (described <a class="reference internal" href="popcorn.html#target-to-popcorn"><span class="std std-ref">here</span></a>) allows to readily read and analyse the output and takes care of the .hdf5 file.</p>
+<p>In this section, we aim at giving some basic ideas on .hdf5 files; for a deeper discussion, we suggest <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">the HDF5 library webpage</a>
+and <a class="reference external" href="https://www.h5py.org">the h5py documentation</a>.</p>
+<p>The Hierarchical Data Format (HDF) version 5 is a file format that supports heterogeneous and complex data.
+HDF files are structured ‘directory-like’, allowing to organize the information stored in one single file in a way that is very
+similar to a computer’s folders system. What is a ‘directory’ or a ‘folder’ in a computer, is a ‘group’ in HDF; what is a ‘file’
+in a computer, is a ‘dataset’ in HDF. Groups are folder-like elements in a file that can contain other groups or datasets, while
+datasets contain the actual data stored in the file as well as metadata describing them.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/hdf5_structure.pdf"><img alt="_images/hdf5_structure.pdf" src="_images/hdf5_structure.pdf" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Structure of a .hdf5 file.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A key feature of .hdf5 files is that they are designed to store big data, and are therefore compressed and easy to <em>slice</em>.
+Moreover, HDF is a <em>heterogeneous</em> format - meaning that the same file can contain datas of different types, just as much
+as directories in computers do.</p>
+<p>Despite the numerous similarities with directories, HDF files cannot be accessed exactly as a folder on the computer;
+however, using a programming language, it is possible to access the information stored in the metadata - which
+are already linked to the group of datasets of interest. For users of Diskpop, this is done within <a class="reference internal" href="popcorn.html#target-to-popcorn"><span class="std std-ref">popcorn</span></a>.</p>
+<p>In Diskpop, each simulation returns a .hdf5 file as an output. The first level of groups are represented by the
+<em>timesteps</em> at which the population was evolved (given in input with the <strong>times_snapshot</strong> parameter); each of these groups/directories
+in turn contains other groups, which represent the single YSOs in the population; these groups are then splitted in two further groups,
+which contain the datasets for the star and disc respectively. <em>popcorn</em> bypasses the need to slice the output file and gives N-dimensional
+arrays containing the disc and stellar properties for each YSO in the population at all timesteps.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basics.html" class="btn btn-neutral float-left" title="1. Basic Functioning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="solution_algorithm.html" class="btn btn-neutral float-right" title="3. Solution Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2024, Alice Somigliana, Giovanni Rosotti, Leonardo Testi, Giuseppe Lodato, Marco Tazzari, Claudia Toci, Rossella Anania, Benoit Tabone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
